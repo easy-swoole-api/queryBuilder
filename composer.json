@@ -1,0 +1,29 @@
+{
+    "name": "easyapi/easyorm",
+    "autoload": {
+        "psr-4": {
+            "EasyApi\\EasyORM\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "黄龙辉",
+            "email": "huanglonghui@mh.com"
+        },
+        {
+            "name": "刘仁明",
+            "email": "liurenming@mh.com"
+        }
+    ],
+    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "EasyApi\\EasyORM\\": "src/",
+            "EasyApi\\EasyORM\\Test\\": "test/"
+        }
+    },
+    "require-dev": {
+        "easyswoole/swoole-ide-helper": "^1.2",
+        "phpunit/phpunit": "^9.5"
+    }
+}
