@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Builder;
+namespace EasyApi\Db\Builder;
 
-use EasyApi\EasyORM\Builder;
-use EasyApi\EasyORM\Exception\BuilderException;
-use EasyApi\EasyORM\Expression;
+use EasyApi\Db\Builder;
+use EasyApi\Db\Exception\BuilderException;
+use EasyApi\Db\Expression;
 
 class Mysql extends Builder
 {

@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Exception;
+namespace EasyApi\Db\Exception;
 
 use Exception;
 

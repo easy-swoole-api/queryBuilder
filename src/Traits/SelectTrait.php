@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Traits;
+namespace EasyApi\Db\Traits;
 
-use EasyApi\EasyORM\Exception\BuilderException;
-use EasyApi\EasyORM\Expression;
-use EasyApi\EasyORM\Query;
+use EasyApi\Db\Exception\BuilderException;
+use EasyApi\Db\Expression;
+use EasyApi\Db\Query;
 
 trait SelectTrait
 {

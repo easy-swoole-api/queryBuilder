@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Enum;
+namespace EasyApi\Db\Enum;
 
 class ParamEnum
 {

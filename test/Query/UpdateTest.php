@@ -7,10 +7,10 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Test\Query;
+namespace EasyApi\Db\Test\Query;
 
-use EasyApi\EasyORM\Expression;
-use EasyApi\EasyORM\Query;
+use EasyApi\Db\Expression;
+use EasyApi\Db\Query;
 use PHPUnit\Framework\TestCase;
 
 class UpdateTest extends TestCase

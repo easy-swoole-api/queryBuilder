@@ -7,10 +7,10 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM;
+namespace EasyApi\Db;
 
-use EasyApi\EasyORM\Enum\ParamEnum;
-use EasyApi\EasyORM\Exception\BuilderException;
+use EasyApi\Db\Enum\ParamEnum;
+use EasyApi\Db\Exception\BuilderException;
 
 abstract class Builder
 {

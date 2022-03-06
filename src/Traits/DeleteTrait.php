@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Traits;
+namespace EasyApi\Db\Traits;
 
-use EasyApi\EasyORM\Exception\BuilderException;
+use EasyApi\Db\Exception\BuilderException;
 
 trait DeleteTrait
 {

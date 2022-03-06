@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Traits;
+namespace EasyApi\Db\Traits;
 
 trait InsertTrait
 {

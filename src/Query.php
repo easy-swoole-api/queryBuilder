@@ -7,15 +7,15 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM;
+namespace EasyApi\Db;
 
-use EasyApi\EasyORM\Enum\ParamEnum;
-use EasyApi\EasyORM\Exception\BuilderException;
-use EasyApi\EasyORM\Traits\DeleteTrait;
-use EasyApi\EasyORM\Traits\GroupTrait;
-use EasyApi\EasyORM\Traits\InsertTrait;
-use EasyApi\EasyORM\Traits\SelectTrait;
-use EasyApi\EasyORM\Traits\UpdateTrait;
+use EasyApi\Db\Enum\ParamEnum;
+use EasyApi\Db\Exception\BuilderException;
+use EasyApi\Db\Traits\DeleteTrait;
+use EasyApi\Db\Traits\GroupTrait;
+use EasyApi\Db\Traits\InsertTrait;
+use EasyApi\Db\Traits\SelectTrait;
+use EasyApi\Db\Traits\UpdateTrait;
 
 class Query
 {

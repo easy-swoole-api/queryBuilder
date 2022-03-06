@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Helper;
+namespace EasyApi\Db\Helper;
 
 class Loader
 {

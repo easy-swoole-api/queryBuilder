@@ -7,10 +7,10 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Test\Query;
+namespace EasyApi\Db\Test\Query;
 
-use EasyApi\EasyORM\Enum\ParamEnum;
-use EasyApi\EasyORM\Query;
+use EasyApi\Db\Enum\ParamEnum;
+use EasyApi\Db\Query;
 use PHPUnit\Framework\TestCase;
 
 class LinkOpTest extends TestCase

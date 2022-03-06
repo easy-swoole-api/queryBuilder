@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM\Test\Query;
+namespace EasyApi\Db\Test\Query;
 
-use EasyApi\EasyORM\Query;
+use EasyApi\Db\Query;
 use PHPUnit\Framework\TestCase;
 
 class ViewSelectTest extends TestCase

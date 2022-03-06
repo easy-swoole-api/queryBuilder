@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM;
+namespace EasyApi\Db;
 
 class Expression
 {

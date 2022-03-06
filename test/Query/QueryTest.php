@@ -6,7 +6,7 @@
  * Time: 23:14
  */
 
-namespace EasyApi\EasyORM\Test;
+namespace EasyApi\Db\Test;
 
 use PHPUnit\Framework\TestCase;
 

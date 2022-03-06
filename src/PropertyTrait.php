@@ -7,10 +7,10 @@
  */
 declare(strict_types=1);
 
-namespace EasyApi\EasyORM;
+namespace EasyApi\Db;
 
-use EasyApi\EasyORM\Enum\ParamEnum;
-use EasyApi\EasyORM\Helper\Loader;
+use EasyApi\Db\Enum\ParamEnum;
+use EasyApi\Db\Helper\Loader;
 
 trait PropertyTrait
 {
@@ -42,7 +42,7 @@ trait PropertyTrait
      */
     protected function setBuilder(string $type = 'Mysql')
     {
-        $class = '\\EasyApi\\EasyORM\\Builder\\' . ucfirst($type);
+        $class = '\\EasyApi\\Db\\Builder\\' . ucfirst($type);
         $this->builder = new $class($this);
     }
 

@@ -1,29 +1,30 @@
 {
-    "name": "easyapi/easyorm",
+    "name": "easyapi/db",
     "autoload": {
         "psr-4": {
-            "EasyApi\\EasyORM\\": "src/"
+            "EasyApi\\Db\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "黄龙辉",
-            "email": "huanglonghui@mh.com"
+            "name": "XueSi",
+            "email": "1592328848@qq.com"
         },
         {
-            "name": "刘仁明",
-            "email": "liurenming@mh.com"
+            "name": "RMS",
+            "email": "1562560735@qq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">= 7.3"
+    },
     "autoload-dev": {
         "psr-4": {
-            "EasyApi\\EasyORM\\": "src/",
-            "EasyApi\\EasyORM\\Test\\": "test/"
+            "EasyApi\\Db\\": "src/",
+            "EasyApi\\Db\\Test\\": "test/"
         }
     },
     "require-dev": {
-        "easyswoole/swoole-ide-helper": "^1.2",
         "phpunit/phpunit": "^9.5"
     }
 }
