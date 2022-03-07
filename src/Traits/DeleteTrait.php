@@ -38,9 +38,14 @@ trait DeleteTrait
         // 生成删除SQL语句
         $sql = $this->builder->delete($options);
 
-        // 获取参数绑定
-        $bind = $this->getBind();
+        if ($options['fetch_sql']) {
+            // 获取参数绑定
+            $bind = $this->getBind();
 
-        return $this->getRealSql($sql, $bind);
+            // 获取实际执行的SQL语句
+            return $this->getRealSql($sql, $bind);
+        }
+
+        return $this->getRealSql($sql);
     }
 }

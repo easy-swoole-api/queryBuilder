@@ -16,7 +16,8 @@
         }
     ],
     "require": {
-        "php": ">= 7.3"
+        "php": ">= 7.3",
+        "easyswoole/spl": "^1.2"
     },
     "autoload-dev": {
         "psr-4": {

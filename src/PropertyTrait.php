@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace EasyApi\Db;
 
 use EasyApi\Db\Enum\ParamEnum;
+use EasyApi\Db\Exception\BuilderException;
 use EasyApi\Db\Helper\Loader;
 
 trait PropertyTrait
@@ -34,6 +35,9 @@ trait PropertyTrait
 
     // 参数绑定
     protected $bind = [];
+
+    // 最终执行的sql
+    protected $lastSql;
 
     /**
      * 设置当前的数据库Builder对象
@@ -111,6 +115,11 @@ trait PropertyTrait
     public function bind($key, $value = false, $type = ParamEnum::PARAM_STR)
     {
         if (is_array($key)) {
+            foreach ($key as $k => $v) {
+                if (!is_numeric($k)) {
+                    throw new BuilderException('non numeric index is not supported as key.');
+                }
+            }
             $this->bind = array_merge($this->bind, $key);
         } else {
             $this->bind[$key] = [$value, $type];
@@ -239,9 +248,7 @@ trait PropertyTrait
      */
     public function getBind()
     {
-        $bind = $this->bind;
-        $this->bind = [];
-        return $bind;
+        return $this->bind;
     }
 
     /**
@@ -271,5 +278,21 @@ trait PropertyTrait
     public function setPrefix(string $prefix)
     {
         $this->prefix = $prefix;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastSql()
+    {
+        return $this->lastSql;
+    }
+
+    /**
+     * @param mixed $lastSql
+     */
+    public function setLastSql($lastSql): void
+    {
+        $this->lastSql = $lastSql;
     }
 }

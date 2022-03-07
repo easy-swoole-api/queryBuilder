@@ -213,8 +213,7 @@ class Query
             $value = is_array($val) ? $val[0] : $val;
             $type = is_array($val) ? $val[1] : ParamEnum::PARAM_STR;
             if (ParamEnum::PARAM_STR == $type) {
-//                $value = $this->quote($value);
-                $value = "'{$value}'";
+                $value = "'" . addslashes((string)$value) . "'";
             } elseif (ParamEnum::PARAM_INT == $type) {
                 $value = (float)$value;
             }
@@ -222,11 +221,16 @@ class Query
             $sql = is_numeric($key) ?
                 substr_replace($sql, $value, strpos($sql, '?'), 1) :
                 str_replace(
-                    [':' . $key . ')', ':' . $key . ',', ':' . $key . ' ', ':' . $key . PHP_EOL],
+                    ['?)', '?,', '? ', '?' . PHP_EOL],
                     [$value . ')', $value . ',', $value . ' ', $value . PHP_EOL],
                     $sql . ' ');
         }
-        return rtrim($sql);
+
+        $lastSql = rtrim($sql);
+
+        $this->setLastSql($lastSql);
+
+        return $lastSql;
     }
 
     /**
@@ -484,7 +488,7 @@ class Query
      */
     public function lock($lock = false)
     {
-        $this->options['lock']   = $lock;
+        $this->options['lock'] = $lock;
         return $this;
     }
 
@@ -535,9 +539,9 @@ class Query
     /**
      * 设置分表规则
      * @access public
-     * @param array  $data  操作的数据
+     * @param array $data 操作的数据
      * @param string $field 分表依据的字段
-     * @param array  $rule  分表规则
+     * @param array $rule 分表规则
      * @return $this
      */
     public function partition($data, $field, $rule = [])
@@ -549,9 +553,9 @@ class Query
     /**
      * 得到分表的的数据表名
      * @access public
-     * @param array  $data  操作的数据
+     * @param array $data 操作的数据
      * @param string $field 分表依据的字段
-     * @param array  $rule  分表规则
+     * @param array $rule 分表规则
      * @return string
      */
     public function getPartitionTableName($data, $field, $rule = [])
@@ -559,12 +563,12 @@ class Query
         // 对数据表进行分区
         if ($field && isset($data[$field])) {
             $value = $data[$field];
-            $type  = $rule['type'];
+            $type = $rule['type'];
             switch ($type) {
                 case 'id':
                     // 按照id范围分表
                     $step = $rule['expr'];
-                    $seq  = floor($value / $step) + 1;
+                    $seq = floor($value / $step) + 1;
                     break;
                 case 'year':
                     // 按照年份分表
@@ -602,5 +606,25 @@ class Query
             $tableName = '( ' . implode(" UNION ", $tableName) . ') AS ' . $this->name;
             return $tableName;
         }
+    }
+
+    /**
+     * 重置属性
+     * @return $this
+     * @author: XueSi <1592328848@qq.com>
+     * @date: 2022/3/7 11:24 下午
+     */
+    public function reset()
+    {
+        $this->builder = null;
+        $this->table = '';
+        $this->name = '';
+        $this->pk = '';
+        $this->prefix = '';
+        $this->options = [];
+        $this->bind = [];
+        $this->lastSql = null;
+
+        return $this;
     }
 }

@@ -164,7 +164,7 @@ abstract class Builder
     protected function parseValue($value)
     {
         if (is_string($value)) {
-            $value = "'{$value}'";
+            $value = "'" . addslashes((string)$value) . "'";
         } elseif (is_array($value)) {
             $value = array_map([$this, 'parseValue'], $value);
         } elseif (is_bool($value)) {

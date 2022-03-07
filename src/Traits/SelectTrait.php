@@ -188,11 +188,16 @@ trait SelectTrait
         // 生成查询SQL
         $sql = $this->builder->select($options);
 
-        // 获取参数绑定
-        $bind = $this->getBind();
+        if ($options['fetch_sql']) {
+            // 获取参数绑定
+            $bind = $this->getBind();
+
+            // 获取实际执行的SQL语句
+            return $this->getRealSql($sql, $bind);
+        }
 
         // 获取实际执行的SQL语句
-        return $this->getRealSql($sql, $bind);
+        return $this->getRealSql($sql);
     }
 
     /**

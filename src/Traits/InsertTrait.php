@@ -25,11 +25,18 @@ trait InsertTrait
         // 分析查询表达式
         $options = $this->parseExpress();
         $data    = array_merge($options['data'], $data);
+
         // 生成SQL语句
         $sql = $this->builder->insert($data, $options, $replace);
-        // 获取参数绑定
-        $bind = $this->getBind();
-        return $this->getRealSql($sql, $bind);
+
+        if ($options['fetch_sql']) {
+            // 获取参数绑定
+            $bind = $this->getBind();
+
+            return $this->getRealSql($sql, $bind);
+        }
+
+        return $this->getRealSql($sql);
     }
 
     /**
@@ -58,9 +65,14 @@ trait InsertTrait
             }
         }
 
-        // 获取参数绑定
-        $bind = $this->getBind();
-        return $this->getRealSql($sql, $bind);
+        if ($options['fetch_sql']) {
+            // 获取参数绑定
+            $bind = $this->getBind();
+
+            return $this->getRealSql($sql, $bind);
+        }
+
+        return $this->getRealSql($sql);
     }
 
     /**
